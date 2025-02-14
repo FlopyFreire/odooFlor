@@ -1,0 +1,40 @@
+<!-- ciclo_formativo/views/ciclo_formativo_views.xml -->
+<odoo>
+    <menuitem id="menu_ciclo" name="Ciclos Formativos" />
+    
+    <menuitem id="menu_cicloFormativo" name="Ciclos Formativos" parent="menu_ciclo" sequence="1"/>
+
+    <record id="view_ciclo_form" model="ir.ui.view">
+        <field name="name">ciclo_formativo.ciclo_formativo.form</field>
+        <field name="model">ciclo_formativo.ciclo_formativo</field>
+        <field name="arch" type="xml">
+            <form string="Ciclo Formativo">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ciclo_tree" model="ir.ui.view">
+        <field name="name">ciclo_formativo.ciclo_formativo.tree</field>
+        <field name="model">ciclo_formativo.ciclo_formativo</field>
+        <field name="arch" type="xml">
+            <tree string="Ciclos Formativos">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ciclo" model="ir.actions.act_window">
+        <field name="name">Ciclos Formativos</field>
+        <field name="res_model">ciclo_formativo.ciclo_formativo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ciclo_formativo" name="Ciclos Formativos" parent="menu_ciclo" action="action_ciclo" sequence="1"/>
+</odoo>

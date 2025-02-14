@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ciclo_formativo_director,ciclo_formativo.ciclo_formativo,model_ciclo_formativo_ciclo_formativo,ciclo_formativo.group_director,1,1,1,1
+access_modulo_director,ciclo_formativo.modulo,model_ciclo_formativo_modulo,ciclo_formativo.group_director,1,1,1,1
+access_alumno_director,ciclo_formativo.alumno,model_ciclo_formativo_alumno,ciclo_formativo.group_director,1,1,1,1
+access_profesor_director,ciclo_formativo.profesor,model_ciclo_formativo_profesor,ciclo_formativo.group_director,1,1,1,1
+
+access_profesor_lectura,ciclo_formativo.profesor,model_ciclo_formativo_profesor,ciclo_formativo.group_profesor,1,0,0,0

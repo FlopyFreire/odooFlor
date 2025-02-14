@@ -1,0 +1,44 @@
+<odoo>
+    <menuitem id="menu_empresa_root" name="Empresa de Repartidores"/>
+
+    <record id="action_empleados" model="ir.actions.act_window">
+        <field name="name">Empleados</field>
+        <field name="res_model">empresa.empleado</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_empleado_tree"/>
+    </record>
+    <menuitem id="menu_empleados" name="Empleados" parent="menu_empresa_root" action="action_empleados" sequence="1"/>
+
+    <record id="action_vehiculos" model="ir.actions.act_window">
+        <field name="name">Vehículos</field>
+        <field name="res_model">empresa.vehiculo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_vehiculo_tree"/>
+    </record>
+    <menuitem id="menu_vehiculos" name="Vehículos" parent="menu_empresa_root" action="action_vehiculos" sequence="2"/>
+
+    <record id="action_clientes" model="ir.actions.act_window">
+        <field name="name">Clientes</field>
+        <field name="res_model">empresa.cliente</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_cliente_tree"/>
+    </record>
+    <menuitem id="menu_clientes" name="Clientes" parent="menu_empresa_root" action="action_clientes" sequence="3"/>
+
+    <record id="action_repartos" model="ir.actions.act_window">
+        <field name="name">Repartos</field>
+        <field name="res_model">empresa.reparto</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_reparto_tree"/>
+    </record>
+    <menuitem id="menu_repartos" name="Repartos" parent="menu_empresa_root" action="action_repartos" sequence="4"/>
+
+    <!-- Acción para el wizard -->
+    <record id="action_wizard_reparto" model="ir.actions.act_window">
+        <field name="name">Crear Reparto</field>
+        <field name="res_model">empresa.wizard_reparto</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_wizard_reparto" name="Crear Reparto" parent="menu_empresa_root" action="action_wizard_reparto" sequence="5"/>
+</odoo>

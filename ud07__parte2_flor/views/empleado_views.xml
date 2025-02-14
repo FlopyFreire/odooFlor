@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_empleado_tree" model="ir.ui.view">
+        <field name="name">empleado.tree</field>
+        <field name="model">empresa.empleado</field>
+        <field name="arch" type="xml">
+            <tree string="Empleados">
+                <field name="dni"/>
+                <field name="complete_name"/>
+                <field name="telefono"/>
+                <field name="tiene_licencia_moto"/>
+                <field name="tiene_licencia_furgoneta"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_empleado_form" model="ir.ui.view">
+        <field name="name">empleado.form</field>
+        <field name="model">empresa.empleado</field>
+        <field name="arch" type="xml">
+            <form string="Empleado">
+                <sheet>
+                    <group>
+                        <field name="foto" widget="image"/>
+                        <field name="dni"/>
+                        <field name="nombre"/>
+                        <field name="apellido"/>
+                        <field name="telefono"/>
+                        <field name="tiene_licencia_moto"/>
+                        <field name="tiene_licencia_furgoneta"/>
+                    </group>
+                    <group string="Repartos Realizados">
+                        <field name="repartos_ids">
+                            <tree string="Repartos">
+                                <field name="codigo"/>
+                                <field name="fecha_hora_inicio"/>
+                                <field name="estado"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <!-- Botón para generar el reporte -->
+                    <button name="%(action_reporte_empleado_reparto)d" string="Reporte de Repartos Pendientes" type="action" class="btn-primary"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

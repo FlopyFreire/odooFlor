@@ -1,0 +1,85 @@
+<odoo>
+  <data>
+    <!-- Vista tipo lista -->
+    <record model="ir.ui.view" id="lista_tareas_list">
+      <field name="name">lista_tareas list</field>
+      <field name="model">lista_tareas.lista_tareas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tarea"/>
+          <field name="prioridad"/>
+          <field name="urgente"/>
+          <field name="realizada"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista tipo kanban -->
+    <record model="ir.ui.view" id="lista_tareas_kanban">
+      <field name="name">lista_tareas kanban</field>
+      <field name="model">lista_tareas.lista_tareas</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="tarea"/>
+          <field name="prioridad"/>
+          <field name="urgente"/>
+          <field name="realizada"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_product_vignette">
+                <a type="open">
+                  <div t-if="record.tarea">
+                    <strong>Tarea:</strong> <span t-esc="record.tarea.value"/>
+                  </div>
+                  <div t-if="record.prioridad">
+                    <strong>Prioridad:</strong> <span t-esc="record.prioridad.value"/>
+                  </div>
+                  <div>
+                    <strong>Urgente:</strong> 
+                    <span t-esc="record.prioridad.raw_value > 10 ? 'Sí' : (record.urgente.raw_value ? 'Sí' : 'No')"/>
+                  </div>
+                  <div>
+                    <strong>Realizada:</strong>
+                    <span t-esc="record.realizada.raw_value ? 'Sí' : 'No'"/>
+                  </div>
+                </a>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+
+
+    <!-- Vista tipo Calendar -->
+    <record model="ir.ui.view" id="lista_tareas_calendar">
+      <field name="name">lista_tareas calendar</field>
+      <field name="model">lista_tareas.lista_tareas</field>
+      <field name="arch" type="xml">
+        <calendar string="Tareas Calendar" date_start="fecha_inicio" date_stop="fecha_fin" color="prioridad" __validate__="1">
+          <field name="tarea" string="Nombre de la Tarea"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+    <!-- Acción para abrir las vistas -->
+    <record model="ir.actions.act_window" id="lista_tareas_action">
+      <field name="name">Listado de tareas pendientes</field>
+      <field name="res_model">lista_tareas.lista_tareas</field>
+      <field name="view_mode">kanban,tree,form,calendar</field>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem name="Listado de tareas" id="lista_tareas_menu_root"/>
+
+    <!-- Submenú -->
+    <menuitem name="Opciones Lista Tareas" id="lista_tareas_menu_1" parent="lista_tareas_menu_root"/>
+    
+    <!-- Opción de mostrar lista -->
+    <menuitem name="Mostrar lista" id="lista_tareas_menu_1_list" 
+      parent="lista_tareas_menu_1" action="lista_tareas_action"/>
+  </data>
+</odoo>

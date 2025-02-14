@@ -1,0 +1,45 @@
+<!-- ciclo_formativo/views/alumno_views.xml -->
+<odoo>
+    <menuitem id="menu_ciclo" name="Ciclos Formativos" sequence="1"/>
+
+    <menuitem id="menu_alumno" name="Alumnos" parent="menu_ciclo" />
+
+    <record id="view_alumno_form" model="ir.ui.view">
+        <field name="name">ciclo_formativo.alumno.form</field>
+        <field name="model">ciclo_formativo.alumno</field>
+        <field name="arch" type="xml">
+            <form string="Alumno">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="matricula"/>
+                        <field name="id_modulo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_alumno_tree" model="ir.ui.view">
+        <field name="name">ciclo_formativo.alumno.tree</field>
+        <field name="model">ciclo_formativo.alumno</field>
+        <field name="arch" type="xml">
+            <tree string="Alumnos">
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="matricula"/>
+                <field name="id_modulo"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_alumno" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="res_model">ciclo_formativo.alumno</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="ciclo_formativo.view_alumno_tree"/>
+    </record>
+
+    <menuitem id="menu_alumno" name="Alumnos" parent="menu_ciclo" action="action_alumno" sequence="3"/>
+</odoo>

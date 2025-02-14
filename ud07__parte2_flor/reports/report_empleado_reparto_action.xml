@@ -1,0 +1,10 @@
+<odoo>
+    <report
+        id="action_reporte_empleado_reparto"
+        model="empresa.empleado"
+        string="Reporte de Repartos Pendientes"
+        report_type="qweb-pdf"
+        name="empresa.reporte_empleado_reparto"
+        file="empresa.reporte_empleado_reparto"
+        print_report_name="'Reporte_Repartos_Pendientes_' + object.nombre"/>
+</odoo>

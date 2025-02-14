@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_cliente_tree" model="ir.ui.view">
+        <field name="name">cliente.tree</field>
+        <field name="model">empresa.cliente</field>
+        <field name="arch" type="xml">
+            <tree string="Clientes">
+                <field name="dni"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cliente_form" model="ir.ui.view">
+        <field name="name">cliente.form</field>
+        <field name="model">empresa.cliente</field>
+        <field name="arch" type="xml">
+            <form string="Cliente">
+                <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="nombre"/>
+                        <field name="apellidos"/>
+                        <field name="telefono"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

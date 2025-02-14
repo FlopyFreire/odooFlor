@@ -1,0 +1,45 @@
+<!-- hospital_flor/views/diagnostico_views.xml -->
+<odoo>
+    <menuitem id="menu_hospital" name="Gestión Hospitalaria" sequence="1"/>
+
+    <menuitem id="menu_diagnosticos" name="Diagnósticos" parent="menu_hospital" sequence="3"/>
+
+    <record id="view_diagnostico_form" model="ir.ui.view">
+        <field name="name">hospital_flor.diagnostico.form</field>
+        <field name="model">hospital_flor.diagnostico</field>
+        <field name="arch" type="xml">
+            <form string="Diagnóstico">
+                <sheet>
+                    <group>
+                        <field name="paciente_id"/>
+                        <field name="medico_id"/>
+                        <field name="diagnostico"/>
+                        <field name="fecha_atencion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_diagnostico_tree" model="ir.ui.view">
+        <field name="name">hospital_flor.diagnostico.tree</field>
+        <field name="model">hospital_flor.diagnostico</field>
+        <field name="arch" type="xml">
+            <tree string="Diagnósticos">
+                <field name="paciente_id"/>
+                <field name="medico_id"/>
+                <field name="fecha_atencion"/>
+                <field name="diagnostico"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_diagnostico" model="ir.actions.act_window">
+        <field name="name">Diagnósticos</field>
+        <field name="res_model">hospital_flor.diagnostico</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hospital_flor.view_diagnostico_tree"/>
+    </record>
+
+    
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <template id="reporte_empleado_reparto">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Reporte de Repartos Pendientes</h2>
+                <t t-foreach="docs" t-as="doc">
+                    <h3>Empleado: <t t-esc="doc.nombre"/> <t t-esc="doc.apellido"/></h3>
+                    <t t-foreach="doc.repartos_ids" t-as="reparto">
+                        <div class="oe_structure"/>
+                        <p>
+                            <strong>Código:</strong> <t t-esc="reparto.codigo"/><br/>
+                            <strong>Fecha y Hora de Inicio:</strong> <t t-esc="reparto.fecha_hora_inicio"/><br/>
+                            <strong>Vehículo:</strong> <t t-esc="reparto.vehiculo_id.tipo"/><br/>
+                            <strong>Distancia:</strong> <t t-esc="reparto.distancia_km"/> km<br/>
+                            <strong>Peso:</strong> <t t-esc="reparto.peso_kg"/> kg<br/>
+                            <strong>Volumen:</strong> <t t-esc="reparto.volumen_m3"/> m³<br/>
+                            <strong>Urgencia:</strong> <t t-esc="reparto.urgencia"/><br/>
+                            <strong>Estado:</strong> <t t-esc="reparto.estado"/>
+                        </p>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

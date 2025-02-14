@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_empleado,access_empleado,model_empresa_empleado,,1,1,1,1
+access_vehiculo,access_vehiculo,model_empresa_vehiculo,,1,1,1,1
+access_cliente,access_cliente,model_empresa_cliente,,1,1,1,1
+access_reparto,access_reparto,model_empresa_reparto,,1,1,1,1
+access_wizard_reparto,access_wizard_reparto,model_empresa_wizard_reparto,,1,1,1,1

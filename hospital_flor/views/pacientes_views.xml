@@ -1,0 +1,43 @@
+<!-- hospital_flor/views/paciente_views.xml -->
+<odoo>
+    <menuitem id="menu_hospital" name="Gestión Hospitalaria" sequence="1"/>
+
+    <menuitem id="menu_pacientes" name="Pacientes" parent="menu_hospital" sequence="1"/>
+
+    <record id="view_paciente_form" model="ir.ui.view">
+        <field name="name">hospital_flor.pacientes.form</field>
+        <field name="model">hospital_flor.pacientes</field>
+        <field name="arch" type="xml">
+            <form string="Paciente">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="sintomas"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_paciente_tree" model="ir.ui.view">
+        <field name="name">hospital_flor.pacientes.tree</field>
+        <field name="model">hospital_flor.pacientes</field>
+        <field name="arch" type="xml">
+            <tree string="Pacientes">
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="sintomas"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_paciente" model="ir.actions.act_window">
+        <field name="name">Pacientes</field>
+        <field name="res_model">hospital_flor.pacientes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hospital_flor.view_paciente_tree"/>
+    </record>
+
+    
+</odoo>

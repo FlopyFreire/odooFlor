@@ -1,0 +1,79 @@
+<odoo>
+    <record id="view_reparto_tree" model="ir.ui.view">
+        <field name="name">reparto.tree</field>
+        <field name="model">empresa.reparto</field>
+        <field name="arch" type="xml">
+            <tree string="Repartos">
+                <field name="codigo"/>
+                <field name="fecha_recepcion"/>
+                <field name="fecha_hora_inicio"/>
+                <field name="empleado_id"/>
+                <field name="vehiculo_id"/>
+                <field name="distancia_km"/>
+                <field name="estado"/>
+                <field name="urgencia"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_reparto_form" model="ir.ui.view">
+        <field name="name">reparto.form</field>
+        <field name="model">empresa.reparto</field>
+        <field name="arch" type="xml">
+            <form string="Reparto">
+                <sheet>
+                    <group>
+                        <field name="codigo" readonly="1"/>
+                        <field name="fecha_recepcion"/>
+                        <field name="fecha_hora_inicio"/>
+                        <field name="fecha_hora_retorno"/>
+                        <field name="empleado_id"/>
+                        <field name="vehiculo_id"/>
+                        <field name="distancia_km"/>
+                        <field name="peso_kg"/>
+                        <field name="volumen_m3"/>
+                        <field name="observaciones"/>
+                        <field name="estado"/>
+                        <field name="cliente_emisor_id"/>
+                        <field name="nombre_receptor"/>
+                        <field name="apellidos_receptor"/>
+                        <field name="urgencia"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_reparto_kanban" model="ir.ui.view">
+        <field name="name">reparto.kanban</field>
+        <field name="model">empresa.reparto</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="estado" widget="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <strong>
+                                    <field name="codigo"/>
+                                </strong>
+                                <div>
+                                    <field name="estado"/>
+                                </div>
+                                <div>
+                                    <field name="empleado_id"/>
+                                </div>
+                                <div>
+                                    <field name="vehiculo_id"/>
+                                </div>
+                                <div>
+                                    <field name="urgencia"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

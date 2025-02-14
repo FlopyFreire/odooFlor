@@ -1,0 +1,15 @@
+<odoo>
+    <!-- Grupo de seguridad para Directores -->
+    <record id="group_director" model="res.groups">
+        <field name="name">Director</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <!-- Incluye al usuario administrador por defecto en este grupo, si es necesario -->
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+
+    <!-- Grupo de seguridad para Profesores -->
+    <record id="group_profesor" model="res.groups">
+        <field name="name">Profesor</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

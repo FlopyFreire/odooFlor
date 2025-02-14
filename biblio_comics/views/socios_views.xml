@@ -1,0 +1,38 @@
+<!-- biblio_comics/views/socios_views.xml -->
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">socios.form</field>
+        <field name="model">biblio_comics.socios</field>
+        <field name="arch" type="xml">
+            <form string="Socios">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="identifier"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_socio_tree" model="ir.ui.view">
+        <field name="name">socio.tree</field>
+        <field name="model">biblio_comics.socios</field>
+        <field name="arch" type="xml">
+            <tree string="Socios">
+                <field name="name"/>
+                <field name="last_name"/>
+                <field name="identifier"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_socio" model="ir.actions.act_window">
+        <field name="name">Socios</field>
+        <field name="res_model">biblio_comics.socios</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_biblio_comics_socios" name="Socios" parent="menu_biblio_comics_main" action="action_socio"/>
+</odoo>

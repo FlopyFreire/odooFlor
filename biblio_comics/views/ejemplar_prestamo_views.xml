@@ -1,0 +1,40 @@
+<!-- biblio_comics/views/ejemplar_prestamo_views.xml -->
+<odoo>
+    <record id="view_ejemplar_prestamo_form" model="ir.ui.view">
+        <field name="name">ejemplar.prestamo.form</field>
+        <field name="model">ejemplar.prestamo</field>
+        <field name="arch" type="xml">
+            <form string="Ejemplar de Prestamo">
+                <sheet>
+                    <group>
+                        <field name="comic_id"/>
+                        <field name="socio_id"/>
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ejemplar_prestamo_tree" model="ir.ui.view">
+        <field name="name">ejemplar.prestamo.tree</field>
+        <field name="model">ejemplar.prestamo</field>
+        <field name="arch" type="xml">
+            <tree string="Ejemplares de Prestamo">
+                <field name="comic_id"/>
+                <field name="socio_id"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ejemplar_prestamo" model="ir.actions.act_window">
+        <field name="name">Ejemplares de Prestamo</field>
+        <field name="res_model">ejemplar.prestamo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ejemplar_prestamo" name="Ejemplares de Prestamo" parent="menu_biblio_comics_main" action="action_ejemplar_prestamo"/>
+</odoo>
